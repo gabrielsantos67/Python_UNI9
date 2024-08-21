@@ -1,0 +1,23 @@
+// Biblioteca pandas
+
+// intalação 
+pip install pandas
+
+// importanção
+import pandas as pd
+
+// primeiro data frame
+data = {'Nome': ['Alice', 'Bob', 'Charlie'],
+        'IDade': [25,30,35],
+        'Cidade': ['São Paulo', 'Rio de Janeiro', 'Curitiba'],
+        'RG': [123456789, 987654321, 1324576890]}
+df = pd.DataFrame(data)
+df
+
+// explorando comandos
+
+print(df): // exibe o data frame
+df.head()
+df.tail()
+df.
+df.
