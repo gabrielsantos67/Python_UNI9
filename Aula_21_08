@@ -15,9 +15,23 @@ df = pd.DataFrame(data)
 df
 
 // explorando comandos
-
 print(df): // exibe o data frame
-df.head()
-df.tail()
-df.
-df.
+df.head(): // "" as primeiras 5 linhas
+df.tail(): // "" as ultimas 5 linhas
+df.info(): // sumario das infos
+df.describe(): // estatísticas da info
+
+// Linha para excluir alguma info da tabela
+df.drop('cidade', axis=1, implace=True)
+df
+
+// Linha para renomear colunas
+df.rename(columns={'Nome atual da coluna': 'Nome novo para a coluna'}, inplace=True)
+df
+
+// agrupamento de informações
+df.groupby
+
+// média com o groupby
+media = df.groupby('Curso')['Idade'].mean()
+print(media)
