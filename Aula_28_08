@@ -1,0 +1,12 @@
+\\ média, moda e mediana
+
+data = { 
+    "Altura": [160, 170, 165, 175, 160]
+}
+df = pd.DataFrame(data)
+media_alturas = df ["Altura"].mean()
+moda_alturas = df["Altura"].mode()[0]
+mediana_alturas = df["Altura"].median()
+print("Media das alturas:", media_alturas)
+print("Moda das alturas:", moda_alturas)
+print("Mediana das alturas:", mediana_alturas)
