@@ -1,0 +1,36 @@
+// Filtro simples
+data = {
+    'Valor': [20,30,50,120,150,180,200]
+  
+}
+df = pd.DataFrame(data)
+
+filtro = df[df['Valor']>150]
+print("\nLinhas com Valor > 150: ")
+print(filtro)
+
+// Filtro composto
+data = {
+    'Valor': [20,30,50,120,150,180,200],
+    'Quantidade': [10,11,13,14,20,50,85]
+  
+}
+df = pd.DataFrame(data)
+
+filtro = df[(df['Valor']>150) & (df['Quantidade']>10)]
+print("\nLinhas com Valor > 150 e quantidade >10: ")
+print(filtro) # sempre lembrar de por as condições entre parenteses por garantia
+
+// Filtro para pegar valores entre um range
+data = {
+    'Valor': [20,30,50,120,150,180,200],
+    'Quantidade': [10,11,13,14,20,50,85],
+    'Produto': ['A','B','C','D','E','F','G']
+  
+}
+df = pd.DataFrame(data)
+
+filtro = df[df['Valor'].between(100,150)]
+print("\nlinhas com Valor entre 100 e 150:")
+print(filtro)
+
