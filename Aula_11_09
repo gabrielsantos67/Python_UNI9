@@ -1,0 +1,24 @@
+// df.loc serve para atribuir um valor a uma coluna de acordo com uma condição se atendida.
+data = {
+    'nome':['Ana', 'August', 'Erza', 'Natsu', 'Lucy', 'Gildarts'],
+    'idade':[10,20,30,17,18,50]
+}
+
+df = pd.DataFrame(data)
+
+df.loc[df['idade'] >= 18, 'Faixa Etária'] = 'Maior de idade'
+df.loc[(df['idade'] >= 13) & (df['idade'] < 18), 'Faixa Etária'] = 'Adolescente'
+df.loc[df['idade'] < 13, 'Faixa Etária'] = 'Criança'
+df
+
+// exemplo
+data = {
+    'Nome': ['Limpa vidro', 'Arroz', 'Feijão', 'Diesel', 'RAM'],
+    'Cat': ['Limpeza', 'Alimento', 'Alimento', 'Combustível', 'Eletronico'],
+    'Quantidade': [10, 20, 15, 50, 30],
+    'Preço': [13, 25, 12, 4, 55]
+}
+df = pd.DataFrame(data)
+
+filtro = df.loc[(df['Preço'] < 100) & (df['Quantidade'] > 10)]
+filtro 
