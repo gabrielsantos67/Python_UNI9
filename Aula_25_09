@@ -1,0 +1,50 @@
+import pandas as pd
+
+data = {
+    'Nome': ['JJ', 'Gabi', 'BH'],
+    'Idade': [65,27,32]
+}
+
+df = pd.DataFrame(data)
+df.set_index('Nome', inplace=True) #para setar uma indes 
+df.reset_index(inplace=True) #para retornar a index ao padrão
+
+
+df.index = [2,0,1] #Para exibir da maneira a qual eu quero
+
+crescente = df.sort_index(ascending=True) #Para exibir em ordem crescente
+decrescente = df.sort_index(ascending=False) #Para exibir em ordem decrescente
+
+print(df)
+print(crescente)
+print(decrescente)
+
+data = {
+    'Produto': ['Veja', 'sabão', 'detergente', 'Veja', 'candida'],
+    'Valor': [65,27,32,45,10]
+}
+
+df = pd.DataFrame(data)
+df.set_index('Produto', inplace=True)
+grupo = df.loc['Veja'] #Serve para agrupar e exibir o grupo determinado
+grupo
+
+data = {
+    'Filme': ['50 tons de Negro', 'Assino de greenville', 'Jack o estripador', 'Hercules'],
+    'Classificação': [18,20,12,'L'],
+    'Gênero': ['Comédia', 'Terror', 'Ficção', 'Mitologia']
+}
+
+df = pd.DataFrame(data)
+df.set_index('Gênero', inplace=True)
+grupo_A = df.loc['Mitologia']
+grupo_A
+
+data={
+    'Produto': ['Alvejante', 'Sabão', 'Detergente', 'Candida'],
+    'Valor': [65,27,32,45]
+}
+
+df = pd.DataFrame(data)
+filtragem = df.groupby('Produto').agg({'Valor': ['sum', 'mean']}) #Agrupa os similares e exibe a soma e média dos produtos
+filtragem
