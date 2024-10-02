@@ -1,0 +1,14 @@
+pip install -u scikit-learn #instalação da biblioteca
+
+import numpy as np #importação da biblioteca
+from sklearn.linear_model import LinearRegression
+
+anuncios = np.array([[4],[7],[21],[12],[45]])
+vendas = np.array([2,14,15,24,75])
+
+modelo = LinearRegression()
+modelo.fit(anuncios, vendas)
+
+anun_pub=[[10],[60]]
+previsao = modelo.predict(anun_pub)
+print('Previsão de vendas com', anun_pub[1][0], 'anuncios publicados será de', previsao[1], 'vendas')
