@@ -1,0 +1,31 @@
+import  pandas as pd
+from sklearn.linear_model import LinearRegression # preve um numero específico
+from sklearn.linear_model import LogisticRegression # preve uma categoria 
+from google.colab import files
+from sklearn.model_selection import train_test_split  
+
+uploaded = files.upload()
+filename = next(iter(uploaded))
+df = pd.read_csv(filename) # função que le um csv no pandas
+
+x = df[['precipitation','temp_max','temp_min','wind']] # pegamos por colunas do banco de dados
+y = df[['weather']]
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)# sempre ter um treino e um teste
+
+modelo = LogisticRegression(max_iter=1000)
+modelo.fit(x_train, y_train)
+
+y_pred = modelo.predict(x_test)
+x = df[['precipitation','temp_max','temp_min','wind']] # sempre ter um treino e um teste
+y = df[['weather']]
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+modelo = LogisticRegression(max_iter=1000)
+modelo.fit(x_train, y_train)
+y_pred = modelo.predict(x_test)
+
+dados_dia_especifico= x_test.iloc[[30]]
+previsao_dia_especifico = modelo.predict(dados_dia_especifico)
+print(f'Previsão das condições climáricas para o dia específico: {previsao_dia_especifico[0]}')
